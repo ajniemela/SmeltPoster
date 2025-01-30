@@ -21,7 +21,14 @@ morph_observed<-read_excel("X:/Special Studies/Smelt_Morphometrics/data/NDFS2024
 # creating subset ####
 ## Subset includes only smelt that were photographed in aquarium ####
 
-Aquarium_Smelt <- subset(morph_observed, !is.na(Photo_fv)) #Note to self: is.na used to check for N/A, ! NEGATES logical condition
+aquarium_smelt<- morph_observed %>% 
+  select(morph_observed)
+
+nonfv_smelt<- morph_observed %>% 
+  select(morph_observed)
+
+
+aquarium_smelt <- subset(morph_observed, !is.na(Photo_fv)) #Note to self: is.na used to check for N/A, ! NEGATES logical condition
 view(Aquarium_Smelt)
 
 nonfv_smelt <- subset(morph_observed, is.na(Photo_fv))
